@@ -34,12 +34,13 @@ body {
   color: var(--cream-strong);
   background: var(--navy-950);
   font-family:
-    "Noto Serif TC",
-    "Source Han Serif TC",
     "PingFang TC",
+    "Noto Sans TC",
+    "Source Han Sans TC",
     "Microsoft JhengHei",
-    "PMingLiU",
-    serif;
+    "Heiti TC",
+    system-ui,
+    sans-serif;
   letter-spacing: 0;
 }
 
@@ -383,6 +384,8 @@ a:focus-visible {
 .heart-divider {
   display: flex;
   width: min(22rem, 78vw);
+  margin-right: auto;
+  margin-left: auto;
   align-items: center;
   justify-content: center;
   gap: 1.1rem;
@@ -405,6 +408,8 @@ a:focus-visible {
 
 .heart-divider--small {
   width: min(20rem, 100%);
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .grid {
