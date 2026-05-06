@@ -274,7 +274,9 @@
       icon(item.icon) +
       "</span>" +
       '<span class="option-band">' +
+      '<span class="option-label">' +
       escapeHtml(item.label || item.name) +
+      "</span>" +
       "</span>" +
       '<span class="option-card__spark" aria-hidden="true">✦</span>' +
       "</span>" +
@@ -287,7 +289,9 @@
       '<button class="person-card" type="button" data-person-id="' +
       escapeHtml(person.id) +
       '">' +
-      '<span class="person-card__surface">' +
+      '<span class="person-card__surface" title="' +
+      escapeHtml(person.role + " " + person.name) +
+      '">' +
       '<span class="person-photo">' +
       pictureMarkup(person.photo, person.name + person.role) +
       "</span>" +

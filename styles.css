@@ -442,6 +442,8 @@ a:focus-visible {
 .option-card,
 .person-card {
   position: relative;
+  display: block;
+  width: 100%;
   min-width: 0;
   padding: 0;
   color: var(--cream-strong);
@@ -453,6 +455,7 @@ a:focus-visible {
 .option-card__surface,
 .person-card__surface {
   position: relative;
+  width: 100%;
   overflow: hidden;
   border: 1px solid rgba(255, 224, 164, 0.75);
   background:
@@ -466,16 +469,18 @@ a:focus-visible {
 }
 
 .option-card__surface {
-  min-height: 11.5rem;
+  aspect-ratio: 1 / 1.32;
+  min-height: 0;
   display: grid;
-  grid-template-rows: 1fr auto 2.9rem;
+  grid-template-rows: 48% 32% 20%;
   border-radius: var(--card-radius-small);
 }
 
 .person-card__surface {
-  min-height: 19.2rem;
+  aspect-ratio: 1 / 1.62;
+  min-height: 0;
   display: grid;
-  grid-template-rows: 1fr auto 3.35rem;
+  grid-template-rows: 58% 29% 13%;
   border-radius: var(--card-radius-small);
 }
 
@@ -494,9 +499,9 @@ a:focus-visible {
 
 .option-icon {
   display: grid;
-  min-height: 6.4rem;
+  min-height: 0;
   place-items: center;
-  padding: 1.2rem 1rem 0.2rem;
+  padding: 0.8rem 1rem 0.2rem;
   color: rgba(205, 154, 74, 0.38);
 }
 
@@ -512,7 +517,8 @@ a:focus-visible {
   align-content: center;
   justify-items: center;
   min-width: 0;
-  padding: 0.7rem 0.65rem;
+  overflow: hidden;
+  padding: 0.45rem 0.65rem;
   color: #fff9ed;
   background:
     linear-gradient(90deg, rgba(216, 94, 12, 0.96), rgba(247, 139, 29, 0.98), rgba(219, 91, 12, 0.96));
@@ -520,13 +526,28 @@ a:focus-visible {
 }
 
 .option-band {
-  min-height: 3.85rem;
-  font-size: 1.25rem;
-  line-height: 1.45;
+  min-height: 0;
+  font-size: clamp(1.02rem, 5.2vw, 1.25rem);
+  line-height: 1.28;
+  text-align: center;
+}
+
+.option-label,
+.person-role,
+.person-name {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+}
+
+.option-label {
+  max-width: 100%;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
 }
 
 .person-band {
-  min-height: 5.9rem;
+  min-height: 0;
   gap: 0.1rem;
 }
 
@@ -553,7 +574,7 @@ a:focus-visible {
 
 .person-photo {
   position: relative;
-  min-height: 11.2rem;
+  min-height: 0;
   overflow: hidden;
   background:
     radial-gradient(circle at 72% 22%, rgba(255, 255, 255, 0.92) 0 1px, transparent 2px),
@@ -564,7 +585,7 @@ a:focus-visible {
 .person-photo img {
   width: 100%;
   height: 100%;
-  min-height: 11.2rem;
+  min-height: 0;
   display: block;
   object-fit: cover;
   object-position: center 38%;
@@ -577,9 +598,11 @@ a:focus-visible {
   margin: 0;
   overflow-wrap: anywhere;
   color: rgba(255, 250, 238, 0.94);
-  font-size: 0.95rem;
-  line-height: 1.5;
+  font-size: clamp(0.78rem, 3.4vw, 0.95rem);
+  line-height: 1.32;
   text-align: center;
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
 }
 
 .person-name {
@@ -588,11 +611,13 @@ a:focus-visible {
   margin: 0;
   overflow-wrap: anywhere;
   color: #fff7e6;
-  font-size: 1.65rem;
+  font-size: clamp(1.12rem, 5.3vw, 1.65rem);
   font-weight: 700;
-  line-height: 1.22;
+  line-height: 1.18;
   text-align: center;
   text-shadow: 0 1px 0 rgba(104, 37, 0, 0.16);
+  line-clamp: 2;
+  -webkit-line-clamp: 2;
 }
 
 .scene-footer {
@@ -775,23 +800,30 @@ a:focus-visible {
 .modal-photo {
   height: clamp(9rem, 24svh, 12rem);
   min-height: 0;
+  display: grid;
+  place-items: center;
   overflow: hidden;
   border: 1px solid rgba(193, 124, 37, 0.5);
   border-radius: 1.25rem;
-  background: #fff1d1;
+  background:
+    radial-gradient(circle at 22% 26%, rgba(255, 255, 255, 0.82) 0 1px, transparent 2px),
+    radial-gradient(circle at 80% 68%, rgba(232, 164, 62, 0.34) 0 1px, transparent 2px),
+    linear-gradient(180deg, #fff6df 0%, #ffedc7 100%);
 }
 
 .modal-photo picture,
 .modal-photo img {
-  width: 100%;
+  width: auto;
   height: 100%;
+  max-width: 100%;
   min-height: 0;
   display: block;
 }
 
 .modal-photo img {
-  object-fit: cover;
-  object-position: center 26%;
+  object-fit: contain;
+  object-position: center center;
+  filter: drop-shadow(0 0.55rem 1rem rgba(123, 72, 12, 0.15));
 }
 
 .modal-message {
@@ -890,17 +922,17 @@ a:focus-visible {
   }
 
   .option-card__surface {
-    min-height: 16rem;
+    min-height: 0;
     border-radius: var(--card-radius);
   }
 
   .person-card__surface {
-    min-height: 28rem;
+    min-height: 0;
     border-radius: var(--card-radius);
   }
 
   .option-icon {
-    min-height: 9.5rem;
+    min-height: 0;
   }
 
   .option-icon svg {
@@ -909,28 +941,28 @@ a:focus-visible {
   }
 
   .option-band {
-    min-height: 4.65rem;
-    font-size: 1.6rem;
+    min-height: 0;
+    font-size: clamp(1.18rem, 3.2vw, 1.55rem);
   }
 
   .person-photo {
-    min-height: 18rem;
+    min-height: 0;
   }
 
   .person-photo img {
-    min-height: 18rem;
+    min-height: 0;
   }
 
   .person-role {
-    font-size: 1.12rem;
+    font-size: clamp(0.92rem, 2.2vw, 1.08rem);
   }
 
   .person-name {
-    font-size: 2.25rem;
+    font-size: clamp(1.45rem, 3.4vw, 2.1rem);
   }
 
   .person-band {
-    min-height: 6.85rem;
+    min-height: 0;
   }
 
   .people-grid--compact {
@@ -985,12 +1017,12 @@ a:focus-visible {
   }
 
   .person-card__surface {
-    min-height: 25rem;
+    min-height: 0;
   }
 
   .person-photo,
   .person-photo img {
-    min-height: 15.5rem;
+    min-height: 0;
   }
 }
 
