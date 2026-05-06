@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#071b36">
+    <meta
+      name="description"
+      content="桃園市立壽山高級中等學校十五屆畢業典禮《拾伍・圓夢》師長祝福網站 demo"
+    >
+    <title>拾伍・圓夢 | 十五屆畢業典禮 師長祝福網站</title>
+    <link rel="preload" href="assets/portraits/portrait-01.webp" as="image" type="image/webp">
+    <link rel="preload" href="assets/portraits/portrait-02.webp" as="image" type="image/webp">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <div class="site-shell" id="siteShell">
+      <div class="sky-layer sky-layer-a" aria-hidden="true"></div>
+      <div class="sky-layer sky-layer-b" aria-hidden="true"></div>
+      <div class="meteor meteor-one" aria-hidden="true"></div>
+      <div class="meteor meteor-two" aria-hidden="true"></div>
+      <div class="meteor meteor-three" aria-hidden="true"></div>
+      <div class="meteor meteor-four" aria-hidden="true"></div>
+      <div class="meteor meteor-five" aria-hidden="true"></div>
+      <div class="orbit orbit-top" aria-hidden="true"></div>
+      <div class="orbit orbit-bottom" aria-hidden="true"></div>
+      <div class="cloud-glow cloud-left" aria-hidden="true"></div>
+      <div class="cloud-glow cloud-right" aria-hidden="true"></div>
+
+      <main class="app" id="app" aria-live="polite"></main>
+    </div>
+
+    <section class="loader" id="loader" aria-label="網站載入畫面">
+      <div class="loader__stars" aria-hidden="true"></div>
+      <div class="loader__content">
+        <p class="loader__eyebrow fade-word">桃園市立壽山高級中等學校</p>
+        <h1 class="loader__title fade-word">
+          <span>拾伍</span>
+          <span class="ai-logo" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+          </span>
+          <span>圓夢</span>
+        </h1>
+        <p class="loader__subtitle fade-word">十五屆畢業典禮 師長祝福網站</p>
+        <div class="heart-divider fade-word" aria-hidden="true">
+          <span></span><b>♥</b><span></span>
+        </div>
+      </div>
+      <p class="loader__credit fade-word">2026.06.01<br>十五屆畢聯會 傳播技術組 製作</p>
+      <button class="loader__skip" id="skipLoader" type="button">進入網站</button>
+    </section>
+
+    <div class="blessing-modal" id="blessingModal" aria-hidden="true">
+      <div class="blessing-modal__backdrop" data-close-modal></div>
+      <article
+        class="blessing-modal__card"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modalTeacherName"
+        tabindex="-1"
+      >
+        <button class="icon-button blessing-modal__close" type="button" data-close-modal aria-label="關閉祝福">
+          <span aria-hidden="true">×</span>
+        </button>
+        <div class="modal-photo" id="modalPhoto"></div>
+        <div class="modal-message">
+          <div class="heart-divider heart-divider--small" aria-hidden="true">
+            <span></span><b>♥</b><span></span>
+          </div>
+          <h2 id="modalTeacherName"></h2>
+          <p id="modalTeacherRole"></p>
+          <blockquote id="modalBlessing"></blockquote>
+          <footer>拾伍・圓夢</footer>
+        </div>
+      </article>
+    </div>
+
+    <noscript>
+      <section class="noscript">
+        <h1>拾伍・圓夢</h1>
+        <p>此 demo 需要啟用 JavaScript 才能瀏覽祝福卡片與互動畫面。</p>
+      </section>
+    </noscript>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
